@@ -2,6 +2,7 @@ import React from 'react';
 import {Route} from "react-router-dom";
 import { Container, Col, Row } from 'react-bootstrap';
 import SideBar from '../../components/SideBar';
+import NavBar from '../../components/NavBar';
 
 const AdminRoute = ({ component: Component, ...rest}) => {
     return (
@@ -11,6 +12,7 @@ const AdminRoute = ({ component: Component, ...rest}) => {
                     <SideBar/>
                 </Col>
                 <Col xs={8}>
+                    <NavBar/>
                     <Route                 
                         {...rest}
                         render={(props) => (

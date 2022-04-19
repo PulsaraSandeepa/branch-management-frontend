@@ -1,5 +1,5 @@
-import {Container,Form, Button, FormControl, Table} from 'react-bootstrap';
-import React, {useState, useEffect} from "react";
+import {Container, Form, Button, FormControl, Table} from 'react-bootstrap';
+import React, {useState, useEffect, useRef} from "react";
 import {useHistory} from 'react-router-dom';
 import CONSTANTS from '../../Constants';
 import axios from "axios";
@@ -8,7 +8,8 @@ const BranchTable = () => {
 
     const history = useHistory();
     const [data, setData] = useState(null);
-
+    const [inputText, setInputText] = useState("");
+    const searchInputElement = useRef();
     useEffect(() => {
         getTableData();
     }, []);
@@ -16,7 +17,7 @@ const BranchTable = () => {
     const getTableData = async () => {
         try {
             const res = await axios.get(`${CONSTANTS.HOSTNAME}/api/branch/all`);
-           // console.log(res.data);
+            // console.log(res.data);
             setData(res.data);
         } catch (err) {
             console.log(err);
@@ -32,18 +33,29 @@ const BranchTable = () => {
             console.log(err);
         }
     }
-    const handleSearch = () => {
-        history.push("/search");
-    }
+
+    const handleSearch = async () => {
+        //convert input text to lower case
+        try {
+            const res = await axios.get(`${CONSTANTS.HOSTNAME}/api/branch/search/${inputText}`);
+            // console.log(res.data);
+            setData(res.data);
+        } catch (err) {
+            console.log(err);
+        }
+
+    };
 
     return (
         <Container className="ContentArea">
-            <Form className="d-flex">
+            <Form className="d-flex" action="/" method="get">
                 <FormControl
                     type="search"
                     placeholder="Branch Name"
                     className="me-2"
                     aria-label="Search"
+                    value={inputText}
+                    onChange={(e) => setInputText(e.target.value)}
                 />
                 <Button variant="outline-success" onClick={handleSearch}>Search</Button>
             </Form>

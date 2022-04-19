@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
+import {Button, Form, FormControl, Table} from "react-bootstrap";
 
 const HomePage = () => {
 
     return (
-        <div>
-            <div><p>Home</p></div>
-        </div>
+        <>
+            <div>
+                <h2>Branch Management</h2>
+            </div>
+
+        </>
     );
 }
 

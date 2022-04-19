@@ -1,8 +1,7 @@
-import React, {Component} from 'react';
-import {Button, Form} from "react-bootstrap";
+import {Navbar, Container, Nav, Form, Button, FormControl, Table} from 'react-bootstrap';
+import React, {useEffect} from "react";
 
-const Dashboard = () => {
-
+const AddBranch = () => {
     return (
         <div>
             <Form>
@@ -31,7 +30,4 @@ const Dashboard = () => {
     );
 }
 
-
-
-
-export default Dashboard;
+export default AddBranch;

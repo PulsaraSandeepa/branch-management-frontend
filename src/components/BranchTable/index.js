@@ -2,8 +2,9 @@ import {Navbar, Container, Nav, Form, Button, FormControl, Table} from 'react-bo
 import React, { useState, useEffect } from "react";
 import { useHistory } from 'react-router-dom';
 import CONSTANTS from '../../Constants';
+import axios from "axios";
 
-const Index = () => {
+const BranchTable = () => {
 
     const temp = [
         {
@@ -24,13 +25,14 @@ const Index = () => {
     const [data, setData] = useState(null);
 
     useEffect(() => {
-        //getTableData();
-        setData(temp);
+        getTableData();
+        ///setData(temp);
     }, []);
 
     const getTableData = async () => {
         try {
-            const res = await axios.get(`${CONSTANTS.HOSTNAME}/api/branch/get-all-branches`);
+            const res = await axios.get(`${CONSTANTS.HOSTNAME}/api/branch/all`);
+            console.log(res.data);
             setData(res.data);
           } catch (err) {
               console.log(err);
@@ -70,15 +72,15 @@ const Index = () => {
                             (data)?
                             data.map((item, i) => (
                                 <tr key={i}>
-                                    <td>{item.id}</td>
+                                    <td>{item.branch_id}</td>
                                     <td>{item.name}</td>
                                     <td>{item.contact}</td>
                                     <td>{item.location}</td>
                                     <td>
-                                        <Button variant="success" onClick={() => {history.push(`/branch/edit?id=${item.id}`)}}>
+                                        <Button variant="success" onClick={() => {history.push(`/branch/update/${item.branch_id}`)}}>
                                             EDIT
                                         </Button>{' '}
-                                        <Button variant="danger" onClick={() => {history.push(`/branch/delete?id=${item.id}`)}}>
+                                        <Button variant="danger" onClick={() => {history.push(`/branch/delete/${item.branch_id}`)}}>
                                             DELETE
                                         </Button>
                                     </td>
@@ -92,4 +94,4 @@ const Index = () => {
     );
 }
 
-export default Index;
+export default BranchTable;

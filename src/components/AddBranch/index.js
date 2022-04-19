@@ -1,25 +1,40 @@
 import React, {useCallback, useEffect, useRef} from "react";
 import { Container, Form, Button } from 'react-bootstrap';
+import axios from "axios";
+import CONSTANTS from "../../Constants";
+import {useHistory} from "react-router-dom";    // for redirecting
 
 const AddBranch = () => {
-
+    const history = useHistory();
     const branchNameInputElement = useRef();
     const branchLocationInputElement = useRef();
     const branchContactInputElement = useRef();
     const branchIdInputElement = useRef();
 
-    const handleSubmit = useCallback(() => (event) => {
+    const handleSubmit = useCallback(  () => (event) => {
         event.preventDefault();
 
         const data = {
-            branchName: branchNameInputElement.current?.value,
-            branchLocation: branchLocationInputElement.current?.value,
-            branchContact: branchContactInputElement.current?.value,
-            branchId: branchIdInputElement.current?.value
+            name: branchNameInputElement.current?.value,
+            location: branchLocationInputElement.current?.value,
+            contact: branchContactInputElement.current?.value,
+            branch_id: branchIdInputElement.current?.value
         }
 
         console.log(data);
+        fetchData(data).then(() => {
+            console.log("Success");
+            history.push("/branch");
+        }).catch(() => {
+            console.log("Error");
+        });
+
     });
+
+    const fetchData = async(data)=>{
+        const response = await axios.post(`${CONSTANTS.HOSTNAME}/api/branch/add-branch`, data);
+        console.log(response);
+    }
 
     return (
         <Container className="ContentArea">

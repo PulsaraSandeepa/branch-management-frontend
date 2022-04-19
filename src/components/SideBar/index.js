@@ -8,10 +8,6 @@ const arr = [
         link: '/'
     },
     {
-        label: 'Owner',
-        link: '/'
-    },
-    {
         label: 'Product',
         link: '/'
     },

@@ -6,6 +6,7 @@ import HomePage from "../HomePage";
 import Dashboard from "../Dashboard";
 import BranchTable from "../../components/BranchTable";
 import AddBranch from "../../components/AddBranch";
+import EditBranch from "../../components/EditBranch";
 
 
 const Routing = () => {
@@ -19,6 +20,8 @@ const Routing = () => {
                         component={BranchTable}/>
             <AdminRoute exact path='/add-branch'
                         component={AddBranch}/>
+            <AdminRoute exact path='/branch/update/:id'
+                        component={EditBranch}/>
         </Switch>
     );
 }

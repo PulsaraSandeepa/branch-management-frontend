@@ -10,10 +10,10 @@ const NavBar = () => {
             <Navbar bg="dark" variant="dark">
                 <Container>
                     <Nav className="me-auto">
-                        <Link className="nav-link" to="/branch">Branch</Link>
-                        <Link className="nav-link" to="/add-branch">Add Branch</Link>
-                        <Link className="nav-link" to="/">Search</Link>
-                        <Link className="nav-link" to="/">Export Monthly</Link>
+                        <Link className="NavItem" to="/branch">Branch</Link>
+                        <Link className="NavItem" to="/add-branch">Add Branch</Link>
+                        <Link className="NavItem" to="/">Search</Link>
+                        <Link className="NavItem" to="/">Export Monthly</Link>
                     </Nav>
                 </Container>
             </Navbar>

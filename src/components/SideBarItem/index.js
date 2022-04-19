@@ -14,9 +14,9 @@ const SideBarItem = (props) => {
     return(
         <div className="SidebarItem">
             <Container fluid>
-                <Row style={{padding:"2rem"}}>                                  
+                <Row style={{padding:"1.4rem"}}>                                  
                     <Container>
-                        <button onClick={handleClick} style={{backgroundColor: "#EAEAEA", border: "none", fontWeight: "bold"}}>
+                        <button onClick={handleClick}>
                             {props.item.label}
                         </button>
                     </Container>                

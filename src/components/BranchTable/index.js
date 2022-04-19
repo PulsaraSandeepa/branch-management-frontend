@@ -1,44 +1,37 @@
-import {Navbar, Container, Nav, Form, Button, FormControl, Table} from 'react-bootstrap';
-import React, { useState, useEffect } from "react";
-import { useHistory } from 'react-router-dom';
+import {Container,Form, Button, FormControl, Table} from 'react-bootstrap';
+import React, {useState, useEffect} from "react";
+import {useHistory} from 'react-router-dom';
 import CONSTANTS from '../../Constants';
 import axios from "axios";
 
 const BranchTable = () => {
-
-    const temp = [
-        {
-            id: '001',
-            name: 'Name-001',
-            location: 'Location-001',
-            contact: '001001'
-        },
-        {
-            id: '002',
-            name: 'Name-002',
-            location: 'Location-002',
-            contact: '002002'
-        },
-    ];
 
     const history = useHistory();
     const [data, setData] = useState(null);
 
     useEffect(() => {
         getTableData();
-        ///setData(temp);
     }, []);
 
     const getTableData = async () => {
         try {
             const res = await axios.get(`${CONSTANTS.HOSTNAME}/api/branch/all`);
-            console.log(res.data);
+           // console.log(res.data);
             setData(res.data);
-          } catch (err) {
-              console.log(err);
-          }
+        } catch (err) {
+            console.log(err);
+        }
     }
 
+    const handleDelete = async (id) => {
+        try {
+            const res = await axios.delete(`${CONSTANTS.HOSTNAME}/api/branch/delete/${id}`);
+            //console.log(res.data);
+            getTableData();
+        } catch (err) {
+            console.log(err);
+        }
+    }
     const handleSearch = () => {
         history.push("/search");
     }
@@ -48,7 +41,7 @@ const BranchTable = () => {
             <Form className="d-flex">
                 <FormControl
                     type="search"
-                    placeholder="Search"
+                    placeholder="Branch Name"
                     className="me-2"
                     aria-label="Search"
                 />
@@ -68,8 +61,8 @@ const BranchTable = () => {
                     </tr>
                     </thead>
                     <tbody>
-                        {
-                            (data)?
+                    {
+                        (data) ?
                             data.map((item, i) => (
                                 <tr key={i}>
                                     <td>{item.branch_id}</td>
@@ -77,16 +70,18 @@ const BranchTable = () => {
                                     <td>{item.contact}</td>
                                     <td>{item.location}</td>
                                     <td>
-                                        <Button variant="success" onClick={() => {history.push(`/branch/update/${item.branch_id}`)}}>
+                                        <Button variant="success" onClick={() => {
+                                            history.push(`/branch/update/${item.branch_id}`)
+                                        }}>
                                             EDIT
                                         </Button>{' '}
-                                        <Button variant="danger" onClick={() => {history.push(`/branch/delete/${item.branch_id}`)}}>
+                                        <Button variant="danger" onClick={() => handleDelete(item.branch_id)}>
                                             DELETE
                                         </Button>
                                     </td>
                                 </tr>
                             )) : null
-                        }
+                    }
                     </tbody>
                 </Table>
             </div>

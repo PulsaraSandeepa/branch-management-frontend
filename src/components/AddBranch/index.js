@@ -58,7 +58,7 @@ const AddBranch = () => {
                 <Button variant="success" type="submit" style={{margin: "1rem 1rem 0 0"}}>
                     ADD BRANCH
                 </Button>
-                <Button variant="danger" style={{margin: "1rem 1rem 0 0"}}>CANCEL</Button>
+                <Button variant="danger" style={{margin: "1rem 1rem 0 0"}} onClick={()=> history.push("/branch")}>CANCEL</Button>
             </Form>
         </Container>
     );

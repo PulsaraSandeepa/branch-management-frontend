@@ -12,8 +12,8 @@ const NavBar = () => {
                     <Nav className="me-auto">
                         <Link className="NavItem" to="/branch">Branch</Link>
                         <Link className="NavItem" to="/add-branch">Add Branch</Link>
-                        <Link className="NavItem" to="/">Search</Link>
-                        <Link className="NavItem" to="/">Export Monthly</Link>
+                        <Link className="NavItem" to="/branch">Search</Link>
+                        <Link className="NavItem" to="#">Export Monthly</Link>
                     </Nav>
                 </Container>
             </Navbar>

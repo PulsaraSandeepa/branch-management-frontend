@@ -5,15 +5,15 @@ import SideBarItem from '../SideBarItem';
 const arr = [
     {
         label: 'Owner',
-        link: '/'
+        link: '/dashboard'
     },
     {
         label: 'Product',
-        link: '/'
+        link: '/dashboard'
     },
     {
         label: 'Delivery',
-        link: '/'
+        link: '/dashboard'
     },
     {
         label: 'Branch',
@@ -21,23 +21,23 @@ const arr = [
     },
     {
         label: 'Feedback',
-        link: '/'
+        link: '/dashboard'
     },
     {
         label: 'Stock',
-        link: '/'
+        link: '/dashboard'
     },
     {
         label: 'Billing',
-        link: '/'
+        link: '/dashboard'
     },
     {
         label: 'Customer',
-        link: '/'
+        link: '/dashboard'
     },
     {
         label: 'Pharmacy',
-        link: '/'
+        link: '/dashboard'
     }
 ];
 

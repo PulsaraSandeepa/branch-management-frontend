@@ -3,10 +3,10 @@ import NavLink from "react-router-dom/es/NavLink";
 import {Link} from "react-router-dom";
 import {useEffect} from "react";
 
-const NavBar = () => {
+const BranchNavBar = () => {
 
     return(
-        <div className="NavBar">
+        <div className="BranchNavBar">
             <Navbar bg="dark" variant="dark">
                 <Container>
                     <Nav className="me-auto">
@@ -21,4 +21,4 @@ const NavBar = () => {
     );
 }
 
-export default NavBar;
+export default BranchNavBar;

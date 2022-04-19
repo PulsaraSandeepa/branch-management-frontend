@@ -28,9 +28,11 @@ body {
   border-radius: 5px;
 }
 
-.NavBar {
-  width: 100%;
-  border: 2px solid black;
+.BranchNavBar {
+  width: 105%;
+  margin-left: -1.8%;
+  background-color: #212529;
+  border: 2px solid #212529;
   border-radius: 5px;
 }
 
@@ -43,10 +45,36 @@ body {
 
 .ContentArea {
   margin-top: 1rem;
+  margin-left: 0.4rem;
 }
 
 .Topbar {
   width: 99%;
   margin: 0.5rem;
+  border-radius: 5px;
+}
+
+.OurBranches {
+  width: 99%;
+  height: 15vh;
+  padding: 1rem;
+  margin: 0.5rem;
+  background-color: #c8f0ff;
+  border-radius: 5px;
+}
+
+.BranchesList {
+  width: 99%;
+  height: 100%;
+  padding: 1rem 3.5rem;
+  background-color: #cecece;
+  border-radius: 5px;
+}
+
+.HomeFooter {
+  width: 99%;
+  height: 100%;
+  padding: 1rem 3.5rem;
+  background-color: #cecece;
   border-radius: 5px;
 }
